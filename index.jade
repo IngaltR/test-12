@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+    head
+        title Chat
+
+        style(type='text/css').
+            body {
+                font-family: 'Helvetica Neue';
+                margin: 50px;
+                font-size: 12px;
+                font-weight: 100;
+            }
+            .message {
+                margin: 20px 0px;
+            }
+
+            form {
+                padding: 10px;
+                background-color: #dedede;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            input, textarea {
+                border: 0px;
+                margin: 0px 0px 10px 0px;
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+
+    body
+        h1 Chat
+
+        each message in messages
+            div.message
+                div= message.date
+                div= message.author
+                div= message.message
+
+        form(method='POST')
+            div
+                label(for='author') Nimi
+                input#author(type='text', name='author', value= '', placeholder='sisesta nimi')
+            div
+                label(for='message') Sõnum
+                textarea#message(name='message', placeholder='Hey qtid ja tutid')
+            div
+                button(type='submit') Saada sõnum
+                button(type='reset') Tühista
